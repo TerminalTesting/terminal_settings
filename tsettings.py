@@ -23,7 +23,7 @@ class ChangePref(unittest.TestCase):
         try:
             ssh = paramiko.SSHClient()
             ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            ssh.connect(os.getenv('HOST'),username=os.getenv('USERNAME'),password=os.getenv('PASS'))
+            ssh.connect(os.getenv('HOST'),username=os.getenv('USERNAME'),password=os.getenv('PASS'))#connect to host
             ssh.exec_command('sudo cp /home/tdevel/%s/operaprefs.ini /home/terminal/.opera' % os.getenv('CHOISE'))
             ssh.exec_command('sudo cp /home/tdevel/%s/script.js /home/terminal/.opera/userjs' % os.getenv('CHOISE'))
             ssh.exec_command('sudo killall opera')
